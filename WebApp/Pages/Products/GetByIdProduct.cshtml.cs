@@ -13,7 +13,6 @@ namespace WebApp.Pages.GetByIdProduct
             var result = await service.GetByIdAsync(id);
                  return Page();
         }
-        
     }
     
 }
