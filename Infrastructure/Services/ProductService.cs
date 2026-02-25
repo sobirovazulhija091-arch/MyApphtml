@@ -38,4 +38,15 @@ public class ProductService(ApplicationDbContext dbContext) : IProductService
            await context.SaveChangesAsync();
            return new Response<string>(HttpStatusCode.OK,"Deleted successfull");
     }
+      public async Task<Response<string>> UpdateAsync(int id, UpdateProductDto dto)
+    {
+         var product = await context.Products.FirstOrDefaultAsync(x => x.Id == id);
+         product.CategoryId=dto.CategoryId;
+         product.Name=dto.Name;
+         product.Description=dto.Description;
+         product.Price=dto.Price;
+         await context.SaveChangesAsync();
+         return new Response<string>(HttpStatusCode.OK,"Update successfully");
+    }
+   
 }

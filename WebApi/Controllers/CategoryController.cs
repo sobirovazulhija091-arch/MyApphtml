@@ -28,4 +28,9 @@ public class CategoryController(ICategoryService _categoryService) : ControllerB
     {
         return await categoryService.DeleteAsync(id);
     }
+     [HttpPut]
+    public async Task<Response<string>> UpdateAsync(int id, UpdateCategoryDto dto)
+    {
+        return await categoryService.UpdateAsync(id,dto);
+    }
 }

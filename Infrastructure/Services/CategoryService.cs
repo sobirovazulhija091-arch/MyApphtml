@@ -38,4 +38,12 @@ public class CategoryService(ApplicationDbContext dbContext):ICategoryService
     await context.SaveChangesAsync();
       return new Response<string>(HttpStatusCode.OK,"Deleted successfull");
     }
+   public async Task<Response<string>> UpdateAsync(int id, UpdateCategoryDto dto)
+    {
+         var category = await context.Categories.FirstOrDefaultAsync(x => x.Id == id);
+        category.Name=dto.Name;
+        category.Description=dto.Description;
+         await context.SaveChangesAsync();
+         return new Response<string>(HttpStatusCode.OK,"Update successfully");
+    }
 }

@@ -28,4 +28,9 @@ public class ProductController(IProductService _productService) : ControllerBase
     {
         return await productService.DeleteAsync(id);
     }
+    [HttpPut]
+    public async Task<Response<string>> UpdateAsync(int id, UpdateProductDto dto)
+    {
+        return await productService.UpdateAsync(id,dto);
+    }
 }
