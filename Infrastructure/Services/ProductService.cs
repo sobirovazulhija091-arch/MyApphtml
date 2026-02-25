@@ -22,13 +22,20 @@ public class ProductService(ApplicationDbContext dbContext) : IProductService
         return new Response<List<Product>>(HttpStatusCode.OK,"OK",await context.Products.ToListAsync());
     }
 
-    public async Task<Response<Product>> GetByIdAsync(int id)
+    public async Task<Product> GetByIdAsync(int id)
     {
-        var find = await context.Products.FindAsync(id);
-        if (find == null)
-        {
-        return new Response<Product>(HttpStatusCode.NotFound,"Not Found");
-        }
-        return new Response<Product>(HttpStatusCode.OK,"OK",find);
+          var product = await context.Products.FirstOrDefaultAsync(x => x.Id == id);
+           return product;
+    }
+     public async  Task<Response<string>> DeleteAsync(int id)
+    {
+           var product = await context.Products.FirstOrDefaultAsync(x => x.Id == id);
+            if (product == null)
+    {
+        return new Response<string>(HttpStatusCode.NotFound,"Category not found");
+    }
+           context.Products.Remove(product);
+           await context.SaveChangesAsync();
+           return new Response<string>(HttpStatusCode.OK,"Deleted successfull");
     }
 }

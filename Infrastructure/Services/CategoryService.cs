@@ -21,13 +21,21 @@ public class CategoryService(ApplicationDbContext dbContext):ICategoryService
        return new Response<List<Category>>(HttpStatusCode.OK,"OK",await context.Categories.ToListAsync());
     }
 
-    public async Task<Response<Category>> GetByIdAsync(int id)
+    public async  Task<Category> GetByIdAsync(int id)
     {
-       var find = await context.Categories.FindAsync(id);
-        if (find == null)
-        {
-        return new Response<Category>(HttpStatusCode.NotFound,"Not Found");
-        }
-        return new Response<Category>(HttpStatusCode.OK,"OK",find);
+       var category = await context.Categories.FirstOrDefaultAsync(x => x.Id == id);
+           return category;
+    }
+    public async  Task<Response<string>> DeleteAsync(int id)
+    {
+          var category = await context.Categories.FindAsync(id);
+
+    if (category == null)
+    {
+        return new Response<string>(HttpStatusCode.NotFound,"Category not found");
+    }
+    context.Categories.Remove(category);
+    await context.SaveChangesAsync();
+      return new Response<string>(HttpStatusCode.OK,"Deleted successfull");
     }
 }

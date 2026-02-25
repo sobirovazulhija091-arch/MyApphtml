@@ -1,0 +1,16 @@
+@page "{id:int}"
+@using WebApp.Pages.DeleteProduct
+@model DeleteProductModel
+<div class="item-container">
+<div class="item-card">
+<div class="item-title">
+Are sure you want to delete this product?
+</div>
+<form method="post">
+<div class="btn-group">
+ <button type="submit class="btn-danger">Yes</button>
+<button class="btn-submit"><a href="/Products/AddProduct">No</a></button>
+</div>
+</form>
+</div>
+</div>

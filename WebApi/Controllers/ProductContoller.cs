@@ -19,8 +19,13 @@ public class ProductController(IProductService _productService) : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<Response<Product>> GetByIdAsync(int id)
+    public async Task<Product> GetByIdAsync(int id)
     {
         return await productService.GetByIdAsync(id);
+    }
+    [HttpDelete]
+     public async  Task<Response<string>> DeleteAsync(int id)
+    {
+        return await productService.DeleteAsync(id);
     }
 }

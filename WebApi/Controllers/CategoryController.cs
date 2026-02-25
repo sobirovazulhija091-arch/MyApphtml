@@ -19,9 +19,13 @@ public class CategoryController(ICategoryService _categoryService) : ControllerB
     }
 
     [HttpGet("{id}")]
-    public async  Task<Response<Category>> GetByIdAsync(int id)
+    public async  Task<Category> GetByIdAsync(int id)
     {
         return await categoryService.GetByIdAsync(id);
-       
+    }
+     [HttpDelete]
+     public async  Task<Response<string>> DeleteAsync(int id)
+    {
+        return await categoryService.DeleteAsync(id);
     }
 }

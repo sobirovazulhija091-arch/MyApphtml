@@ -1,8 +1,13 @@
 @page "{id:int}"
 @using WebApp.Pages.GetByIdCategory
 @model GetByIdCategoryModel
-<h1>Product</h1>
-<p>Id: @Model.category.Id</p>
-<p>Name: @Model.category.Name</p>
-<p>Description: @Model.category.Description</p>
-<button><a href="/Categorys/Categorys">Exit</a></button>
+<div class="item-container">
+    <div class="item-card">
+        <div class="item-title">Category</div>
+
+        <div class="item-info"><strong>Id:</strong> @Model.category.Id</div>
+        <div class="item-info"><strong>Name:</strong> @Model.category.Name</div>
+        <div class="item-info"><strong>Description:</strong> @Model.category.Description</div>
+    </div>
+</div>
+<button class="btn-submit"><a href="/Categorys/Categorys">Exit</a></button>

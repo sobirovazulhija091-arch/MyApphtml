@@ -10,7 +10,7 @@ namespace WebApp.Pages.GetByIdCategory
         public Category category { get; set; } = new();
         public async Task<IActionResult> OnGetAsync(int id)
         {
-            var result = await service.GetByIdAsync(id);
+            category = await service.GetByIdAsync(id);
                  return Page();
         }
         

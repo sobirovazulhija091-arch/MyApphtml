@@ -2,7 +2,7 @@ public interface ICategoryService
 {
         Task<Response<string>> AddAsync(CategoryDto dto);
         // Task<Response<string>> UpdateAsync(int id, UpdateCategoryDto dto);
-        // Task<Response<string>> DeleteAsync(int id);
+        Task<Response<string>> DeleteAsync(int id);
         Task<Response<List<Category>>> GetAllAsync();
-        Task<Response<Category>> GetByIdAsync(int id); 
+        Task<Category> GetByIdAsync(int id); 
 }

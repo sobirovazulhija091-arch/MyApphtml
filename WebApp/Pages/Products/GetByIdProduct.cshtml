@@ -1,9 +1,13 @@
 @page "{id:int}"
 @using WebApp.Pages.GetByIdProduct
 @model GetByIdProductModel
-<h1>Product</h1>
-<p>Id: @Model.product.Id</p>
-<p>Name: @Model.product.Name</p>
-<p>Price: @Model.product.Price</p>
-<p>Description: @Model.product.Description</p>
-<button><a href="/Products/Products">Exit</a></button>
+<div class="item-container">
+    <div class="item-card">
+        <div class="item-title">Product</div>
+        <div class="item-info"><strong>Id:</strong> @Model.product.Id</div>
+        <div class="item-info"><strong>Name:</strong> @Model.product.Name</div>
+        <div class="item-info"><strong>Price:</strong> @Model.product.Price</div>
+        <div class="item-info"><strong>Description:</strong> @Model.product.Description</div>
+    </div>
+</div>
+<button class="btn-submit"><a href="/Products/Products">Exit</a></button>
