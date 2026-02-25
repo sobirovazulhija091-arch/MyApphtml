@@ -1,0 +1,19 @@
+@page
+@using WebApp.Pages.AddCategory
+@model AddCategoryModel
+<h2 class="title">Add New Category</h2>
+
+<form method="post" class="category-form">
+
+    <div class="form-group">
+        <label asp-for="dto.Name"></label>
+        <input asp-for="dto.Name" class="form-input" />
+    </div>
+    <div class="form-group">
+        <label asp-for="dto.Description"></label>
+        <input asp-for="dto.Description" class="form-input" />
+    </div>
+
+    <button type="submit" class="btn-submit">Add Category</button>
+
+</form>

@@ -1,0 +1,16 @@
+@page
+@using WebApp.Pages.GetCategory
+@model GetCategoryModel
+
+<h1>All Category</h1>
+
+<div class="category-container">
+    @foreach (var p in Model.categories)
+    {
+        <div class="Categorys">
+            <h3>@p.Name</h3>
+            <p><strong>Description:</strong> @p.Description</p>
+        </div>
+    }
+</div>
+<button class="btn-add"><a href="/Categorys/AddCategory">Add Category</a></button>

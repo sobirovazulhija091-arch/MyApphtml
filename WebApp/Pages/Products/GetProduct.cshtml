@@ -1,0 +1,18 @@
+@page
+@using WebApp.Pages.GetProduct
+@model GetProductModel
+
+<h1>All Product</h1>
+
+<div class="products-container">
+    @foreach (var p in Model.product)
+    {
+        <div class="Products">
+            <h3>@p.Name</h3>
+            <p><strong>ID:</strong> @p.Id</p>
+            <p><strong>Description:</strong> @p.Description</p>
+            <p><strong>Price:</strong> $@p.Price</p>
+        </div>
+    }
+</div>
+<button class="btn-add"><a href="/Products/AddProduct"> Add Product</a></button>

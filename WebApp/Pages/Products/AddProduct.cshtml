@@ -1,0 +1,30 @@
+@page
+@using WebApp.Pages.AddProduct
+@model AddProductModel
+<h2 class="title">Add New Product</h2>
+
+<form method="post" class="product-form">
+
+    <div class="form-group">
+        <label asp-for="dto.Name"></label>
+        <input asp-for="dto.Name" class="form-input" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="dto.Price"></label>
+        <input asp-for="dto.Price" class="form-input" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="dto.Description"></label>
+        <input asp-for="dto.Description" class="form-input" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="dto.CategoryId"></label>
+        <input asp-for="dto.CategoryId" class="form-input" />
+    </div>
+
+    <button type="submit" class="btn-submit">Add Product</button>
+
+</form>
